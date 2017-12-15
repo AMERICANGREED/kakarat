@@ -23,7 +23,7 @@
 					include 'config.php';
 					include 'opendb.php';
 
-					$sql= "SELECT * FROM apptable
+					$sql= "SELECT * FROM ktable
 				WHERE lastname = '{$_POST["lname"]}' OR firstname = '{$_POST["fname"]}' OR id = ' {$_POST["id"]} '";
 					$result = mysqli_query($conn, $sql);
 
