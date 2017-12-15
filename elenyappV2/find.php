@@ -1,13 +1,13 @@
 <html>
 		<head>
 	<title>Employee Search</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles/custom.css" />
 <link rel="stylesheet" href="themes/rasmussenthemeroller.min.css" />
 <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 	<body>
 		<div id="page" data-role="page" data-theme="b" >
@@ -21,22 +21,23 @@
 					<?php
 					include 'config.php';
 					include 'opendb.php';
+
 					$id = (isset($_POST['id'])    ? $_POST['id']   : '');
-					$firstname = (isset($_POST['fname'])    ? $_POST['fname']   : '');
+					$firstname = (isset($_POST['firstname'])    ? $_POST['firstname']   : '');
 
-					$lastname = (isset($_POST['lname'])    ? $_POST['lname']   : '');
+					$lastname = (isset($_POST['lastname'])    ? $_POST['lastname']   : '');
 
 
-					$sql= "SELECT id , firstname, lastname FROM ktable
-				WHERE lastname = '$lname' OR firstname = '$fname'  OR id = '$id'";
+					$sql= "SELECT id, firstname, lastname FROM ktable
+				WHERE lastname = '$lastname' OR firstname = '$firstname'  OR id = '$id'";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
 									echo "ID: " . $row["id"]. "<br>";
-					        echo "First Name: " . $row["fname"]. "<br>";
-					        echo "Last Name: " . $row["lname"]. "<br><hr>";
+					        echo "First Name: " . $row["firstname"]. "<br>";
+					        echo "Last Name: " . $row["lastname"]. "<br><hr>";
 					    }
 					} else {
 					    echo "0 results";
