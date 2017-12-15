@@ -22,17 +22,22 @@
 					<?php
 					include 'config.php';
 					include 'opendb.php';
+					$id = (isset($_POST['id'])    ? $_POST['id']   : '');
+					$firstname = (isset($_POST['fname'])    ? $_POST['fname']   : '');
 
-					$sql= "SELECT * FROM ktable
-				WHERE lastname = '{$_POST["lname"]}' OR firstname = '{$_POST["fname"]}' OR id = ' {$_POST["id"]} '";
+					$lastname = (isset($_POST['lname'])    ? $_POST['lname']   : '');
+					
+					
+					$sql= "SELECT id , firstname, lastname FROM ktable
+				WHERE lastname = '$lname' OR firstname = '$fname'  OR id = '$id'";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
 									echo "ID: " . $row["id"]. "<br>";
-					        echo "First Name: " . $row["firstname"]. "<br>";
-					        echo "Last Name: " . $row["lastname"]. "<br><hr>";
+					        echo "First Name: " . $row["fname"]. "<br>";
+					        echo "Last Name: " . $row["lname"]. "<br><hr>";
 					    }
 					} else {
 					    echo "0 results";
