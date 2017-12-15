@@ -23,15 +23,15 @@
 					include 'opendb.php';
 
 					$id = (isset($_POST['id'])    ? $_POST['id']   : '');
-					$firstname = (isset($_POST['firstname'])    ? $_POST['firstname']   : '');
 
+					$firstname = (isset($_POST['firstname'])    ? $_POST['firstname']   : '');
 					$lastname = (isset($_POST['lastname'])    ? $_POST['lastname']   : '');
 
+					$sql= "SELECT id, firstname, lastname
+					FROM ktable
+					WHERE id = '$id' OR firstname = '$firstname' OR lASTname = '$lASTname' LIMIT 10";
 
-					$sql= "SELECT id, firstname, lastname FROM ktable
-				WHERE lastname = '$lastname' OR firstname = '$firstname'  OR id = '$id' LIMIT 1";
 					$result = mysqli_query($conn, $sql);
-
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
@@ -42,14 +42,12 @@
 					} else {
 					    echo "0 results";
 					}
-
 					mysqli_close($conn);
-
 					?>
 				</div>
-			</div>
+
 				<div data-role="footer" data-theme="b">
 	  <h4> elenyaapp </h4>
-	</div>
+	</div> 	</div>
 	</body>
 </html>
