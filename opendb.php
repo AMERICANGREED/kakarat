@@ -6,7 +6,7 @@ $conn=mysqli_init();
 
 mysqli_ssl_set($conn, NULL, NULL, {ca-cert filename}, NULL, NULL);
 
-mysqli_real_connect($conn, "kakarat2-mysqldbserver.mysql.database.azure.com", "mysqldbuser@kakarat2-mysqldbserver", "Etinge2017", 'mysqldatabase45775', 3306);
+mysqli_real_connect($conn, "localhost", "mysqldbuser@kakarat2-mysqldbserver", "Etinge2017", 'mysqldatabase45775', 3306);
 
 // Check connection
 if (!$conn) {
