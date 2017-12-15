@@ -29,7 +29,7 @@
 
 
 					$sql= "SELECT id, firstname, lastname FROM ktable
-				WHERE lastname = '$lastname' OR firstname = '$firstname'  OR id = '$id'";
+				WHERE lastname = '$lastname' OR firstname = '$firstname'  OR id = '$id' LIMIT 1";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
