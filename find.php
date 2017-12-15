@@ -19,7 +19,7 @@
 
 
 					<?php
-					include 'config.php';
+					//include 'config.php';
 					include 'opendb.php';
 
 					$id = (isset($_POST['id'])    ? $_POST['id']   : '');
