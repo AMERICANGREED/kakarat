@@ -19,7 +19,7 @@
 
 
 					<?php
-					// include 'config.php';
+					include 'config.php';
 					include 'opendb.php';
 
 					$id = (isset($_POST['id'])    ? $_POST['id']   : '');
@@ -29,7 +29,9 @@
 
 					$sql= "SELECT id, firstname, lastname
 					FROM ktable
-					WHERE id = '$id' OR firstname = '$firstname' OR lASTname = '$lASTname' LIMIT 10";
+
+					WHERE id = '$id' OR firstname = '$firstname' OR lastname = '$lastname' LIMIT 10";
+
 
 					$result = mysqli_query($conn, $sql);
 					if (mysqli_num_rows($result) > 0) {
