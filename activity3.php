@@ -27,9 +27,11 @@
 					$phonenumber = (isset($_POST['phonenumber'])    ? $_POST['phonenumber']   : '');
 					
 
-					$sql= "SELECT firstname, lastname, email
-					FROM employees
-					WHERE firstname = '$firstname' OR lastname = '$lastname' LIMIT 10";
+					$sql= "SELECT employeeinfo.firstname, employeeinfo.lastname, employeeinfo.id, 
+					employeecontact.phone employeecontact.email 
+					FROM employeeinfo JOIN employeecontact on 
+					employeeinfo.id = employeecontact.id
+					WHERE phone = '$phonenumber' LIMIT 10";
 
 					$result = mysqli_query($conn, $sql);
 					if (mysqli_num_rows($result) > 0) {
