@@ -25,7 +25,7 @@
 
 					$number = (isset($_POST['number'])    ? $_POST['number']   : '');
 
-					$sql= "SELECT number FROM ktable
+					$sql= "SELECT number FROM wordgame
 					WHERE number = '$number' ";
 					$result = mysqli_query($conn, $sql);
 
