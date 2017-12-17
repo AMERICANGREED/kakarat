@@ -26,7 +26,7 @@
 					$number = (isset($_POST['number'])    ? $_POST['number']   : '');
 
 					$sql= "SELECT number FROM wordgame
-					WHERE number = '$number' ";
+					WHERE number = '$number' LIMIT 10";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
