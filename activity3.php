@@ -31,7 +31,7 @@
 					employeecontact.phone employeecontact.email 
 					FROM employeeinfo JOIN employeecontact on 
 					employeeinfo.id = employeecontact.id
-					WHERE phone = '$phonenumber' LIMIT 10";
+					WHERE phone = '$phonenumber' LIMIT 100";
 
 					$result = mysqli_query($conn, $sql);
 					if (mysqli_num_rows($result) > 0) {
