@@ -24,14 +24,14 @@
 
 					
 
-					$phonenumber = (isset($_POST['phonenumber'])    ? $_POST['phonenumber']   : '');
+					$email = (isset($_POST['email'])    ? $_POST['email']   : '');
 					
 
 					$sql= "SELECT employeeinfo.firstname, employeeinfo.lastname, employeeinfo.id, 
 					employeecontact.phone employeecontact.email 
 					FROM employeeinfo JOIN employeecontact on 
 					employeeinfo.id = employeecontact.id
-					WHERE phone = '$phonenumber' LIMIT 100";
+					WHERE email LIKE '$email' LIMIT 100";
 
 					$result = mysqli_query($conn, $sql);
 					if (mysqli_num_rows($result) > 0) {
