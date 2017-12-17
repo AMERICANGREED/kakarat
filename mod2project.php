@@ -1,6 +1,6 @@
 <html>
 		<head>
-	<title>Find a Contact</title>
+	<title>Get Word of the day </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles/custom.css" />
 <link rel="stylesheet" href="themes/rasmussenthemeroller.min.css" />
@@ -29,13 +29,18 @@
 					WHERE number = '$number' LIMIT 10";
 					$result = mysqli_query($conn, $sql);
 
-					if (mysqli_num_rows($result) > 0) {
+					if (mysqli_num_rows($result) > 0) 
+					{
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
-									echo "Word of the day is : " . $row["wordoftheday"]. "<br>";
+									echo "Word of the day is : " . $row["wordoftheday"]. "<br><hr>";
+									
 					        
 					    }
-					} else {
+					}
+					else 
+					
+					{
 					    echo "0 results";
 					}
 
