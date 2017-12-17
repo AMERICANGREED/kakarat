@@ -29,9 +29,13 @@
 
 					$sql= "SELECT id, firstname, lastname
 					FROM ktable
+<<<<<<< HEAD
 
 					WHERE id = '$id' OR firstname = '$firstname' OR lastname = '$lastname' LIMIT 10";
 
+=======
+					WHERE id = '$id' OR firstname = '$firstname' OR lASTname = '$lASTname' LIMIT 10";
+>>>>>>> 552a7350713d5a67afaebcbf0655cefbaf17df16
 
 					$result = mysqli_query($conn, $sql);
 					if (mysqli_num_rows($result) > 0) {
