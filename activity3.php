@@ -24,19 +24,21 @@
 
 					
 
-					$email = (isset($_POST['email'])    ? $_POST['email']   : '');
+					$phone = (isset($_POST['phone'])    ? $_POST['phone']   : '');
 					
 
 					$sql= "SELECT employeeinfo.firstname, employeeinfo.lastname, employeeinfo.id, 
 					employeecontact.phone employeecontact.email 
 					FROM employeeinfo JOIN employeecontact on 
 					employeeinfo.id = employeecontact.id
-					WHERE email LIKE '$email' LIMIT 100";
+					WHERE phone LIKE '$phone' LIMIT 100";
 
 					$result = mysqli_query($conn, $sql);
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
+							echo "Customer ID:" . $row["id"]. "<br>";
+							echo "Phone:" . $row["phone"]. "<br>";
 							echo "Email: " . $row["email"]. "<br>";	
 					        echo "First Name: " . $row["firstname"]. "<br>";
 					        echo "Last Name: " . $row["lastname"]. "<br><hr>";
