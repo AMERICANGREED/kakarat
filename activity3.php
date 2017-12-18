@@ -27,7 +27,7 @@
 
 					$sql= "SELECT nametable.fname, nametable.lname, contact.phone , contact.email 
 					FROM nametable JOIN contact on nametable.id = contact.id
-						WHERE phone LIKE '$conf_num' LIMIT 100";
+						WHERE phone LIKE '$phone' LIMIT 100";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
