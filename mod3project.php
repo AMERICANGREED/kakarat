@@ -23,11 +23,11 @@
 					include 'config.php';
 					include 'opendb.php';
 
-					$fafsapin = (isset($_POST['fafsapin'])    ? $_POST['fafsapin']   : '');
+					$fname = (isset($_POST['fname'])    ? $_POST['fname']   : '');
 
 					$sql= "SELECT student.fname, student.lname, fafsa.fafsapin , fafsa.email 
 					FROM student JOIN fafsa on student.id = fafsa.id
-						WHERE fafsapin LIKE '$fafsapin' LIMIT 100";
+						WHERE fname LIKE '$fname' ";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
