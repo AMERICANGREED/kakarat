@@ -23,23 +23,21 @@
 					include 'config.php';
 					include 'opendb.php';
 
-					$conf_num = (isset($_POST['conf_num'])    ? $_POST['conf_num']   : '');
+					$phone = (isset($_POST['phone'])    ? $_POST['phone']   : '');
 
-					$sql= "SELECT customers.customerid, customers.fname, customers.lname, customers.state, orders.conf_num, orders.salesrep
-						FROM customers
-						JOIN orders on customers.customerid = orders.customerid
-						WHERE conf_num LIKE '$conf_num' LIMIT 100";
+					$sql= "SELECT nametable.fname, nametable.lname, contact.phone , contact.email 
+					FROM nametable JOIN contact on nametable.id = contact.id
+						WHERE phone LIKE '$conf_num' LIMIT 100";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
-									echo "ID: " . $row["customerid"]. "<br>";
+									echo "ID: " . $row["id"]. "<br>";
 					        echo "First Name: " . $row["fname"]. "<br>";
 					        echo "Last Name: " . $row["lname"]. "<br>";
-									echo "State: " . $row["state"]. "<br>";
-									echo "Conf. #: " . $row["conf_num"]. "<br>";
-									echo "Sales Rep: " . $row["salesrep"]. "<br>";
+									echo "Phone #: " . $row["phone"]. "<br>";
+									
 					    }
 					} else {
 					    echo "0 results";
