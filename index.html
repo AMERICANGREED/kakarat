@@ -12,7 +12,38 @@
 
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
+<script>
+	var Notification = window.Notification || window.mozNotification || window.webkitNotification;
 
+	Notification.requestPermission(function (permission) {
+		// console.log(permission);
+	});
+
+	function show() {
+		window.setTimeout(function () {
+			var instance = new Notification(
+				"mod5", {
+					body: "wake up "
+				}
+			);
+
+			instance.onclick = function () {
+				// Something to do
+			};
+			instance.onerror = function () {
+				// Something to do
+			};
+			instance.onshow = function () {
+				// Something to do
+			};
+			instance.onclose = function () {
+				// Something to do
+			};
+		}, 3000);
+	}
+</script>
+
+<button type="button" onclick="show()">Notify me!</button
 </head>
 	<body>
 	<div id="fb-root"></div>
